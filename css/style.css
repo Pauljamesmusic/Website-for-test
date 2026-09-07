@@ -233,6 +233,13 @@ body {
 }
 
 @media (max-width: 600px) {
+  body {
+    background-image: url("../assets/Home-page-mobile.png");
+    background-position: center top;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+
   .header { flex-direction: column; gap: 20px; }
   .logo { height: 42px; }
   .footer-row { flex-direction: column; text-align: center; align-items: center; gap: 10px; }
