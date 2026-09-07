@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auraze — Coming Soon</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Glowing cursor -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Hairline grid overlay -->
+  <div class="grid-lines" aria-hidden="true"></div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <a href="#" class="logo-link">
+        <img src="assets/logo.png" alt="AuraLyze Logo" class="logo" />
+      </a>
+      <nav class="nav">
+        <a href="#" class="nav-link">Work</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main class="hero">
+      <div class="hero-content">
+        <h1 class="headline">
+          <span class="line"><span>Our Website</span></span>
+          <span class="line"><span>Is Coming Soon</span></span>
+        </h1>
+        <p class="subtext">
+          We're crafting a refined digital experience for a new
+          generation of visual storytelling.
+        </p>
+        <p class="stay-tuned">Stay Tuned.</p>
+      </div>
+
+      <!-- 3D faceted shape -->
+        <div class="hero-visual">
+            <div class="shape-container">
+            <div class="shape"></div>
+            </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-row">
+        <a href="mailto:info@theauralyze.com" class="footer-item">info@theauralyze.com</a>
+        <a href="https://theauralyze.com" class="footer-item footer-center">https://theauralyze.com</a>
+        <span class="footer-item">Dubai, United Arab Emirates</span>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 AuraLyze. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Glowing cursor follow
+    const glow = document.getElementById('cursorGlow');
+    const dot  = document.getElementById('cursorDot');
+    let mx = 0, my = 0, gx = 0, gy = 0;
+
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px, ${my}px)`;
+    });
+
+    (function animate() {
+      gx += (mx - gx) * 0.12;  // smooth lag effect
+      gy += (my - gy) * 0.12;
+      glow.style.transform = `translate(${gx}px, ${gy}px)`;
+      requestAnimationFrame(animate);
+    })();
+
+    // Hover grow effect on interactive elements
+    document.querySelectorAll('a, .hero-visual').forEach(el => {
+      el.addEventListener('mouseenter', () => glow.classList.add('active'));
+      el.addEventListener('mouseleave', () => glow.classList.remove('active'));
+    });
+  </script>
+</body>
+</html>
